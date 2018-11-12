@@ -1,0 +1,157 @@
+﻿@using Microsoft.AspNetCore.Html
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Serialization
+@{
+    ViewData["Title"] = "tools";
+}
+
+<div style="display: none;" data-bind="visible: true">
+    <h2 class="title">brecht's tools</h2>
+    <small>some handy tools.</small>
+    <hr />
+    <p>
+        <small><i>this section is still in the rough, but I'm working on it :-)</i></small>
+    </p>
+    <div class="content">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#guidGenerator">GUID generator</a></li>
+            <li><a data-toggle="tab" href="#jsMinifier">javascript minifier</a></li>
+            <li><a data-toggle="tab" href="#cssMinifier">css minifier</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="guidGenerator" class="tab-pane fade in active">
+                <h4>GUID generator</h4>
+                <form>
+                    <div class="form-group-lg">
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control" data-bind="value: newGuid" readonly="readonly" onclick="this.focus();this.select();" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-primary" data-bind="click: function() { createGuid(); }">generate new GUID</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="jsMinifier" class="tab-pane fade">
+                <h4>javascript minifier</h4>
+                <!-- ko if: minifyJavascriptErrorMessage-->
+                <div class="alert alert-danger alert-dismissable">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>error!</strong> <span data-bind="text: minifyJavascriptErrorMessage"></span>
+                </div>
+                <!-- /ko -->
+                <div class="form-group" data-bind="validationElement: unminifiedJavascript">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="vertical-align: top;"><i class="fab fa-js"></i></span>
+                        <textarea class="form-control" placeholder="paste your javascript here" rows="10" data-bind="textInput: unminifiedJavascript"></textarea>
+                    </div>
+                </div>
+                <div class="form-group text-right">
+                    <form class="form-inline">
+                        <button type="button" class="btn btn-primary" data-bind="click: function() { minifyJavascript(unminifiedJavascript); }">minify</button>
+                        <button type="button" class="btn btn-primary" data-bind="click: function() { unminifiedJavascript(null); minifiedJavascript(null); minifyJavascriptValidationErrors.showAllMessages(false); }, disable: !minifiedJavascript()">clear</button>
+                    </form>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="vertical-align: top;"><i class="fab fa-js"></i></span>
+                        <textarea class="form-control" placeholder="output" rows="10" data-bind="value: minifiedJavascript" readonly="readonly" onclick="this.focus();this.select();"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div id="cssMinifier" class="tab-pane fade">
+                <h4>css minifier</h4>
+                <!-- ko if: minifyCSSErrorMessage-->
+                <div class="alert alert-danger alert-dismissable">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>error!</strong> <span data-bind="text: minifyCSSErrorMessage"></span>
+                </div>
+                <!-- /ko -->
+                <div class="form-group" data-bind="validationElement: unminifiedCSS">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="vertical-align: top;"><i class="fab fa-css3-alt"></i></span>
+                        <textarea class="form-control" placeholder="paste your css here" rows="10" data-bind="textInput: unminifiedCSS"></textarea>
+                    </div>
+                </div>
+                <div class="form-group text-right">
+                    <form class="form-inline">
+                        <button type="button" class="btn btn-primary" data-bind="click: function() { minifyCSS(unminifiedCSS); }">minify</button>
+                        <button type="button" class="btn btn-primary" data-bind="click: function() { unminifiedCSS(null); minifiedCSS(null);  minifyCSSValidationErrors.showAllMessages(false); }, disable: !minifiedCSS()">clear</button>
+                    </form>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="vertical-align: top;"><i class="fab fa-css3-alt"></i></span>
+                        <textarea class="form-control" placeholder="output" rows="10" data-bind="value: minifiedCSS" readonly="readonly" onclick="this.focus();this.select();"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section seo {
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "Person",
+        "name": "Brecht Baekelandt",
+        "url": "https://www.brechtbaekelandt.net",
+        "sameAs": [
+        "https://facebook.com/brecht.baekelandt",
+        "https://twitter.com/BaekelandtB",
+        "https://www.linkedin.com/in/brechtbaekelandt/",
+        "https://github.com/brechtb86"
+        ]
+        }
+    </script>
+
+    <meta name="description" content="This page contains some handy tools." />
+    <meta name="keywords" content="tools, guid generator" />
+}
+
+@section social{
+    <!-- Open Graph data -->
+    <meta property="og:site_name" content="www.brechtbaekelandt.net" />
+    <meta property="og:title" content="Personal blog of Brecht Baekelandt, .Net developer, metal lover, code addict and Microsoft enthousiast." />
+    <meta property="og:image" itemprop="image" content="https://www.brechtbaekelandt.net/images/me-social.png" />
+    <meta name="medium" content="image">
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="This page contains some handy tools." />
+    <meta property="og:url" content="https://www.brechtbaekelandt.net/tools" />
+    <meta property="fb:app_id" content="495540337506240">
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Personal blog of Brecht Baekelandt, .Net developer, metal lover, code addict and Microsoft enthousiast.">
+    <meta itemprop="description" content="This page contains some handy tools.">
+    <meta itemprop="image" content="https://www.brechtbaekelandt.net/images/me-social.png">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="brechtbaekelandt">
+    <meta name="twitter:creator" content="Brecht Baekelandt">
+    <meta name="twitter:title" content="Personal blog of Brecht Baekelandt, .Net developer, metal lover, code addict and Microsoft enthousiast.">
+    <meta name="twitter:description" content="This page contains some handy tools.">
+    <meta name="twitter:image:src" content="https://www.brechtbaekelandt.net/images/me-social.png">
+}
+
+@section styles{
+
+    <link href="~/css/home.css" rel="stylesheet" asp-append-version="true" />
+}
+
+@section scripts{
+    <environment include="Development">
+        <script type="text/javascript" src="~/js/view-models/home.dev.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script type="text/javascript" src="~/js/view-models/home.js" asp-append-version="true"></script>
+    </environment>
+
+    <script type="text/javascript">
+        $(function () {
+            brechtbaekelandt.home.init();
+        });
+    </script>
+}

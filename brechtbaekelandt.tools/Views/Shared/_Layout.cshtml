@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - brecht|baekelandt</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+    <meta name="copyright" content="www.brechtbaekelandt.net falls under GNU General Public License version 3" />
+    @RenderSection("seo", required: false)
+    <meta name="robots" content="index,follow" />
+
+    @RenderSection("social", required: false)
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="##540804">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="##540804">
+
+    <script  type="text/javascript" src="//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script type="text/javascript">
+        WebFont.load({
+            google: {
+                families: ["Lato", "Varela Round", "Open Sans"]
+            }
+        });
+    </script>
+
+    <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+
+    <link href="~/css/bootstrap/bootstrap-custom.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    <environment include="Development">
+    </environment>
+    <environment exclude="Development">
+    </environment>
+
+    @RenderSection("styles", required: false)
+
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="~/lib/jquery.cookie/jquery.cookie.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/lib/knockout/dist/knockout.js"></script>
+    <script type="text/javascript" src="~/lib/knockout-mapping/knockout.mapping.js"></script>
+    <script type="text/javascript" src="~/js/knockout/knockout.extenders.js"></script>
+    <script type="text/javascript" src="~/js/knockout/knockout.extensions.js"></script>
+    <script type="text/javascript" src="~/js/knockout/knockout.validation-custom.js"></script>
+    <script type="text/javascript" src="~/js/knockout/knockout.validation-rules.js"></script>
+    <script type="text/javascript" src="~/lib/moment/moment.js"></script>
+
+    <script type="text/javascript" src="~/js/helpers/helpers.js"></script>
+    <script type="text/javascript" src="~/js/site.js" asp-append-version="true"></script>
+
+    <script type="text/javascript">
+        $.ajaxSetup({
+            cache: false
+        });
+    </script>
+
+    <script type="text/javascript">
+        var knockoutValidationSettings = {
+            insertMessages: false,
+            insertMessagesAfterValidationElement: true,
+            //insertMessages: false,
+            //insertMessagesAfterValidationElement: false,
+            decorateInputElement: false,
+            decorateElementOnModified: true,
+            errorMessageClass: 'validation-message',
+            errorElementClass: 'has-error',
+            //errorClass: 'error',
+            elementClass: 'form-group',
+            errorsAsTitle: false,
+            parseInputAttributes: false,
+            messagesOnModified: true,
+            messageTemplate: "validationMessageTemplate",
+            grouping: { deep: true, observable: true },
+            registerExtenders: true
+        };
+
+        ko.validation.init(knockoutValidationSettings, true);
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async src="https://www.googletagmanager.com/gtag/js?id=UA-114039978-1"></script>
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-114039978-1');
+    </script>
+
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+<header>
+    <div id="header-content" class="container">
+        <div id="title">
+            <h1>brecht|baekelandt</h1>
+        </div>
+    </div>
+</header>
+<div id="main" class="container">
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="https://www.brechtbaekelandt.net/">home</a></li>
+                <li class="active"><a asp-area="" asp-controller="Home" asp-action="Index">tools</a></li>
+                <li><a href="https://www.brechtbaekelandt.net/about">about</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section>
+        @RenderBody()
+    </section>
+</div>
+
+<script type="text/html" id="validationMessageTemplate">
+    <div class="validation-message" data-bind="visible: field.isModified() && !field.isValid()">
+        <i class="fa fa-arrow-circle-up blinking"></i> <span data-bind="text: field.error"></span>
+    </div>
+</script>
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5634e3b16fe3ba06"></script>
+<script type="text/javascript"  defer src="//use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script type="text/javascript"  async src="https://www.googletagmanager.com/gtag/js?id=UA-114039978-1"></script>
+<script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114039978-1');
+</script>
+</body>
+</html>
+
+

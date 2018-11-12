@@ -1,0 +1,15 @@
+{
+  "name": "brechtbaekelandt.net.tools",
+  "private": true,
+  "dependencies": {
+    "jquery": "3.3.1",
+    "bootstrap": "v3.3.7",    
+    "knockout": "v3.4.2",
+    "moment": "2.20.1",
+    "knockout-mapping": "2.4.1",
+    "jquery.cookie": "jquery-cookie#v1.4.1"
+  },
+  "resolutions": {
+    "jquery": "3.3.1"
+  }
+}
