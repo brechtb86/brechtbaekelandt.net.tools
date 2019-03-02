@@ -5,6 +5,11 @@
     ViewData["Title"] = "tools";
 }
 
+<div class="loader" data-bind="visible: false">
+    <i class="fas fa-spinner fa-pulse fa-2x fa-fw"></i>
+    <p>loading, this won't take long...</p>
+</div>
+
 <div style="display: none;" data-bind="visible: true">
     <h2 class="title">brecht's tools</h2>
     <small>some handy tools.</small>
