@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="AjaxMin" Version="5.14.5506.26202" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.4" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
     <PackageReference Update="Microsoft.NETCore.App" Version="2.0.5" />
   </ItemGroup>
